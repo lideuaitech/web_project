@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lideu AI</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  
+  <script src="script.js" defer></script>
+</head>
+
+<body class="login-page">
+<div class="main-card">
+
+  <!-- NAV -->
+  <div class="nav">
+    <button class="login">Login</button>
+    <button class="register">Register</button>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+
+    <!-- LEFT -->
+    <div class="left">
+      <img src="images/logo.png" alt="Lideu AI Logo" class="logo">
+    </div>
+
+    <!-- FLIP CARD -->
+  <div class="card-container">
+  <div class="card" id="card">
+
+    <!-- LOGIN -->
+    <div class="card-face front">
+      <h3>Login</h3>
+
+      <input id="loginEmail" type="email" placeholder="Enter your email">
+      <input id="loginPassword" type="password" placeholder="Enter your password">
+
+      <button id="loginBtn" class="ok-btn">Login</button>
+    </div>
+
+    <!-- REGISTER -->
+    <div class="card-face back">
+      <h3>Register</h3>
+      <input id="regName" type="text" placeholder="Your Name">
+      <input id="regEmail" type="email" placeholder="Email">
+      <select id="gender">
+        <option value="">Select Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Prefer not to say</option>
+      </select>
+      <input id="regPassword" type="password" placeholder="Password">
+      <input id="confirmPassword" type="password" placeholder="Confirm Password">
+
+      <button id="registerBtn" class="ok-btn">Register</button>
+    </div>
+
+  </div>
+</div>  
+
+  </div>
+</div>
+
+</body>
+</html>

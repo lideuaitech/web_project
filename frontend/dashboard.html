@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lideu AI</title>
+
+  <!-- Single CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="dashboard-page">
+  <div class="app">
+  <!-- ===== SIDEBAR ===== -->
+  <div class="sidebar">
+
+    <!-- TOP SECTION -->
+    <div class="top">
+      <div class="logo">
+        <img src="images/logo.png" alt="Lideu AI Logo">
+      </div>
+      <div id="overlay" class="screen-overlay"></div>
+        <div class="toggle" id="brightnessToggle"></div>
+
+      <button class="new-chat">New Chat</button>
+
+
+      <div class="history">
+        <p>
+          Your chat history 
+          <i data-lucide="chevron-down"></i>
+        </p>
+      </div>
+    </div>
+
+
+
+  </div>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <div class="center-box">
+
+    <h2>Ready when you are, what are we doing today?</h2>
+
+    <div class="input-box">
+      <i data-lucide="plus"></i>
+      <input type="text" placeholder="Ask anything" />
+    </div>
+
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

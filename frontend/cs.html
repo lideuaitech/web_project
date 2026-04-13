@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lideu AI</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter', sans-serif;
+}
+
+/* BODY */
+body{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#000;
+}
+
+/* MAIN CARD */
+.main-card{
+  width:95%;
+  height:90vh;
+  border-radius:25px;
+
+  /* SAME COLORS */
+  background: linear-gradient(
+    100deg,
+    #2dd4bf,
+    #2563eb,
+    #7c3aed,
+    #fb923c
+  );
+
+  /* ANIMATION */
+  background-size:300% 300%;
+  animation: gradientMove 2s ease infinite;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  border:1px solid rgba(255,255,255,0.2);
+  backdrop-filter: blur(20px);
+}
+
+/* GRADIENT ANIMATION */
+@keyframes gradientMove{
+  0%{ background-position:0% 50%; }
+  50%{ background-position:100% 50%; }
+  100%{ background-position:0% 50%; }
+}
+
+/* CONTENT */
+.content{
+  text-align:center;
+  color:white;
+}
+
+/* LOGO */
+.logo{
+  font-size:80px;
+  font-weight:500;
+}
+
+/* TAGLINE */
+.tag{
+  font-size:28px;
+  margin-top:10px;
+  opacity:0.9;
+}
+
+/* UNDERLINE */
+.coming::after{
+  content:"";
+  width:120px;
+  height:2px;
+  background:white;
+  display:block;
+  margin:10px auto 0;
+  opacity:0.6;
+}
+
+/* LOADER */
+.loader{
+  margin: 60px auto;
+  width:65px;
+  height:65px;
+  border:1px solid rgba(255,255,255,0.3);
+  border-top:2px solid white;
+  border-radius:50%;
+  animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+  0%{ transform:rotate(0deg); }
+  100%{ transform:rotate(360deg); }
+}
+
+/* SUBTEXT */
+.subtext{
+  font-size:16px;
+  opacity:0.7;
+}
+
+
+/* COMING SOON */
+.coming{
+  margin-top:40px;
+  font-size:28px;
+  letter-spacing:6px;
+  position:relative;
+}
+
+
+/* MOBILE */
+@media (max-width:768px){
+  .logo{
+    font-size:50px;
+  }
+
+  .tag{
+    font-size:20px;
+  }
+
+  .coming{
+    font-size:22px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="main-card">
+
+  <div class="content">
+
+    <!-- TOP -->
+    <h1 class="logo">Lideu AI</h1>
+    <p class="tag">Decision to Strategy</p>
+
+    <!-- LOADER -->
+    <div class="loader"><br></div>
+
+    <!-- MIDDLE -->
+    <h4 class="coming">COMING SOON</h4>
+
+<br>
+
+    <!-- BOTTOM -->
+    <p class="subtext">Launching your AI analytics platform...</p>
+
+  </div>
+
+</div>
+
+</body>
+</html>

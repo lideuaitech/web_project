@@ -1,0 +1,437 @@
+/* ===== GLOBAL ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background: black;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+}
+/* LOGIN PAGE ONLY */
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.dashboard-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* ===== LOGIN PAGE ===== */
+.main-card {
+  width: 95%;
+  height: 90vh;
+  border-radius: 25px;
+  padding: 60px;
+  margin: auto;
+
+  background: linear-gradient(
+    90deg,
+    rgba(75, 241, 248, 0.65),
+    rgba(17, 122, 240, 0.65),
+    rgba(181, 105, 254, 0.65),
+    rgba(253, 164, 84, 0.65)
+  );
+}
+
+/* NAV */
+.nav {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.nav button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  margin-left: 10px;
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+
+/* HERO */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80%;
+}
+
+.left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+/* LOGIN LOGO ONLY */
+.left .logo {
+  width: 60%;
+  max-width: 400px;
+}
+
+/* CARD */
+.card-container {
+  perspective: 1000px;
+}
+
+.card {
+  width: 340px;
+  height: 420px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: 0.6s;
+}
+
+.card.flip {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+  background: rgba(0, 0, 0, 0.6);
+  padding: 30px;
+  border-radius: 15px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-face h3 {
+  color: white;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
+.card-face input,
+.card-face select {
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 12px;
+}
+
+.ok-btn {
+  padding: 12px;
+  background: #1e88e5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* ===== DASHBOARD / NEXT PAGE ===== */
+.app {
+  width: 95%;
+  height: 90vh;
+  display: flex;
+  gap: 20px;
+  padding: 30px;
+  margin-top: 2.5vh;
+  border-radius: 25px;
+  margin: auto;
+
+  background: linear-gradient(
+    90deg,
+    rgba(75, 241, 248, 0.65),
+    rgba(17, 122, 240, 0.65),
+    rgba(181, 105, 254, 0.65),
+    rgba(253, 164, 84, 0.65)
+  );
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 300px;
+  padding: 20px;
+  border-radius: 25px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 30px;
+
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(30px);
+}
+
+/* TOP GROUP */
+.top {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* SIDEBAR HEADER ROW */
+.logo-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* DASHBOARD LOGO */
+.logo img {
+  width: 140px;
+}
+
+/* AVATAR */
+.avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* BUTTON */
+.new-chat {
+  padding: 12px;
+  border-radius: 25px;
+  border: none;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  cursor: pointer;
+  }
+
+/* HISTORY */
+
+.history {
+  display: flex;
+  justify-content: center;
+}
+
+.history p {
+  display: flex;
+  align-items: center;
+  gap: 6px; /* space between text & arrow */
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Arrow icon */
+.history i {
+  width: 16px;
+  height: 16px;
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+.history p.open i {
+  transform: rotate(180deg);
+}
+
+/* CENTER BOX (dashboard page) */
+.center-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  text-align: center;
+}
+
+.center-box h2 {
+  color: rgba(255,255,255,0.7);
+  font-weight: 400;
+  font-size: 22px;
+}
+
+/* INPUT BOX */
+.input-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  width: 70%;
+  max-width: 800px;
+
+  padding: 18px 25px;
+  border-radius: 40px;
+
+  background: rgba(0,0,0,0.55);
+}
+
+.input-box input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 14px;
+}
+
+.input-box input::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+.input-box i {
+  width: 20px;
+  height: 20px;
+  opacity: 0.8;
+}
+
+/* ===== RIGHT PANEL (NEXT PAGE) ===== */
+.main-panel {
+  flex: 1;
+  border-radius: 25px;
+  position: relative;
+
+  background: linear-gradient(
+    135deg,
+    rgba(0,0,0,0.6),
+    rgba(0,0,0,0.4)
+  );
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* CENTER TEXT */
+.main-content p {
+  color: rgba(255,255,255,0.7);
+  font-size: 16px;
+}
+
+/* TOGGLE */
+.toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  width: 50px;
+  height: 25px;
+  border-radius: 20px;
+
+  background: rgba(0,0,0,0.6);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* TOGGLE DOT */
+.toggle::after {
+  content: "";
+  width: 18px;
+  height: 18px;
+  background: white;
+  border-radius: 50%;
+
+  position: absolute;
+  top: 3.5px;
+  right: 4px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .card {
+    width: 90vw;
+  }
+
+  .app {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+
+  .input-box {
+    width: 90%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ===== SCREEN BRIGHTNESS OVERLAY ===== */
+.screen-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: black;
+  opacity: 0; /* default normal */
+  transition: 0.3s ease;
+  z-index: 999;
+  backdrop-filter: blur(2px);
+}
+
+/* ===== TOGGLE BUTTON ===== */
+.toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  width: 50px;
+  height: 25px;
+  border-radius: 20px;
+
+  background: rgba(0,0,0,0.6);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* WHITE CIRCLE */
+.toggle::after {
+  content: "";
+  position: absolute;
+
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+
+  background: white;
+
+  top: 3.5px;
+  left: 4px;
+
+  transition: 0.3s;
+}
+
+.toggle.active {
+  background: #111;
+}
+
+.toggle.active::after {
+  left: 28px;
+}
