@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 fastapi==0.110.0
 uvicorn==0.29.0
 sqlalchemy==2.0.29
@@ -9,3 +10,18 @@ python-multipart==0.0.9
 openpyxl==3.1.2
 openai==1.14.3
 python-dotenv==1.0.1
+=======
+fastapi==0.110.0
+uvicorn==0.29.0
+sqlalchemy==2.0.29
+pydantic==2.6.4
+python-jose==3.3.0
+passlib==1.7.4
+pandas==2.2.1
+python-multipart==0.0.9
+openpyxl==3.1.2
+openai==1.14.3
+python-dotenv==1.0.1
+
+pip install fastapi uvicorn sqlalchemy psycopg2-binary pandas openpyxl python-jose passlib[bcrypt] python-multipart openai email-validator
+>>>>>>> 2a8f55f903363804ed538766b365df41725714ab
