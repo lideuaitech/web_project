@@ -1,59 +1,98 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Lideu AI</title>
 
-  <!-- Single CSS -->
   <link rel="stylesheet" href="style.css" />
 
   <!-- Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
+
 <body class="dashboard-page">
+
   <div class="app">
-  <!-- ===== SIDEBAR ===== -->
-  <div class="sidebar">
 
-    <!-- TOP SECTION -->
-    <div class="top">
+    <!-- ===== SIDEBAR ===== -->
+<div class="sidebar">
+
+  <div class="top">
+
+    <!-- HEADER ROW -->
+    <div class="logo-row">
       <div class="logo">
-        <img src="images/logo.png" alt="Lideu AI Logo">
+        <img src="images/logo.png" alt="Lideu AI Logo" />
       </div>
-      <div id="overlay" class="screen-overlay"></div>
-        <div class="toggle" id="brightnessToggle"></div>
 
-      <button class="new-chat">New Chat</button>
-
-
-      <div class="history">
-        <p>
-          Your chat history 
-          <i data-lucide="chevron-down"></i>
-        </p>
-      </div>
+      <!-- LOGOUT ICON -->
+      <button class="logout-btn" onclick="logout()">
+        <i data-lucide="log-out"></i>
+      </button>
     </div>
 
+    <button class="new-chat" onclick="startNewChat()">New Chat</button>
 
-
-  </div>
-
-  <!-- ===== MAIN CONTENT ===== -->
-  <div class="center-box">
-
-    <h2>Ready when you are, what are we doing today?</h2>
-
-    <div class="input-box">
-      <i data-lucide="plus"></i>
-      <input type="text" placeholder="Ask anything" />
+    <div class="history">
+      <p>
+        Your chat history
+        <i data-lucide="chevron-down"></i>
+      </p>
     </div>
 
   </div>
 
 </div>
 
-<script src="script.js"></script>
+    <!-- ===== MAIN CONTENT ===== -->
+    <div class="center-box">
+
+      <h2>Ready when you are, what are we doing today?</h2>
+
+      <!-- CHAT -->
+      <div id="chatBox" class="chat-box"></div>
+
+      <!-- INPUT -->
+      <div class="input-box">
+
+        <!-- FILE INPUT (HIDDEN) -->
+        <input type="file" id="fileInput" hidden />
+
+        <!-- QUESTION INPUT -->
+        <input 
+          id="questionInput" 
+          type="text" 
+          placeholder="Ask anything"
+          onkeydown="if(event.key==='Enter') askQuestion()"
+        />
+
+        <!-- UPLOAD BUTTON -->
+        <button type="button" onclick="openFilePicker()", class="icon-btn">
+          <i data-lucide="paperclip" style="stroke: white;"></i>
+        </button>
+
+        <!-- SEND BUTTON -->
+        <button type="button" onclick="askQuestion()" class="icon-btn">
+          <i data-lucide="send" style="stroke: white;"></i>
+        </button>
+
+      </div>
+
+      <!-- FILE NAME DISPLAY -->
+      <p id="fileName" class="file-name"></p>
+
+    </div>
+
+  </div>
+
+  <!-- SCRIPT -->
+  <script src="script.js"></script>
+
+  <!-- Initialize icons -->
+  <script>
+    lucide.createIcons();
+  </script>
 
 </body>
 </html>
