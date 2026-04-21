@@ -90,6 +90,13 @@ def create_access_token(data: dict):
     return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
 
 
+#===== SIGNUP =====
+
+@app.get("/api/health")
+def hello():
+    return {"message": "OK! All Good"}
+
+
 # ===== SIGNUP =====
 @app.post("/signup")
 def signup(user: UserCreate, db: Session = Depends(get_db)):
