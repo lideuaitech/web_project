@@ -1,37 +1,98 @@
-from openai import OpenAI
 import pandas as pd
 
-client = OpenAI(api_key="YOUR_API_KEY")  # replace later
 
 class AIEngine:
 
-    def __init__(self, df):
+    def __init__(self, df, schema):
         self.df = df
+        self.schema = schema
 
+    # ================= MAIN ENTRY =================
     def run(self, question: str):
+        q = question.lower()
 
-        prompt = f"""
-        You are a data analyst.
+        # 🔹 MOCK AI LOGIC (temporary until API key)
+        if "average" in q or "mean" in q:
+            return self.execute({
+                "operation": "average",
+                "column": self.find_column(q)
+            })
 
-        Data columns:
-        {list(self.df.columns)}
+        if "sum" in q or "total" in q:
+            return self.execute({
+                "operation": "sum",
+                "column": self.find_column(q)
+            })
 
-        Question:
-        {question}
+        if "max" in q or "highest" in q:
+            return self.execute({
+                "operation": "max",
+                "column": self.find_column(q)
+            })
 
-        Write a pandas query to answer this.
-        Only return python code.
-        """
+        if "min" in q or "lowest" in q:
+            return self.execute({
+                "operation": "min",
+                "column": self.find_column(q)
+            })
 
-        response = client.chat.completions.create(
-            model="gpt-4o-mini",
-            messages=[{"role": "user", "content": prompt}]
-        )
+        if "count" in q:
+            return self.execute({
+                "operation": "count",
+                "column": None
+            })
 
-        code = response.choices[0].message.content.strip()
+        return {"error": "AI couldn't understand the question"}
 
-        try:
-            result = eval(code)
-            return {"code": code, "result": str(result)}
-        except Exception as e:
-            return {"error": str(e), "code": code}
+    # ================= COLUMN DETECTION =================
+    def find_column(self, question):
+        # exact match
+        for col in self.df.columns:
+            if col.lower() in question:
+                return col
+
+        # partial match fallback
+        for col in self.df.columns:
+            for word in question.split():
+                if word in col.lower():
+                    return col
+
+        return None
+
+    # ================= SAFE EXECUTION =================
+    def execute(self, parsed):
+        op = parsed.get("operation")
+        col = parsed.get("column")
+
+        df = self.df
+
+        # 🔹 COUNT
+        if op == "count":
+            return {"answer": len(df)}
+
+        # ❌ column missing
+        if not col:
+            return {"error": "Column not found"}
+
+        # ❌ column invalid
+        if col not in df.columns:
+            return {"error": f"Column '{col}' not found"}
+
+        # ❌ non-numeric
+        if df[col].dtype == "object":
+            return {"error": f"Column '{col}' is not numeric"}
+
+        # 🔹 OPERATIONS
+        if op == "average":
+            return {"answer": float(df[col].mean())}
+
+        if op == "sum":
+            return {"answer": float(df[col].sum())}
+
+        if op == "max":
+            return {"answer": float(df[col].max())}
+
+        if op == "min":
+            return {"answer": float(df[col].min())}
+
+        return {"error": "Unknown operation"}
