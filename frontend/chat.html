@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lideu AI</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="script.js"></script>
+</head>
+
+<body>
+
+<div class="app">
+
+  <!-- ===== SIDEBAR ===== -->
+  <div class="sidebar">
+
+  <!-- TOP ONLY -->
+  <div class="top">
+    <div class="logo-row">
+      <div>
+        <h2 style="color:white;">Lideu AI</h2>
+        <p style="color: rgba(255,255,255,0.6); font-size: 12px;">
+          Decision to Strategy
+        </p>
+      </div>
+
+      <img id="avatar" class="avatar" />
+    </div>
+
+    <button class="new-chat">New Chat</button>
+
+    <div class="history">
+      <p>
+        Your chat history
+        <i data-lucide="chevron-down"></i>
+      </p>
+    </div>
+  </div>
+
+</div>    
+
+  <!-- ===== MAIN PANEL ===== -->
+  <div class="main-panel">
+
+    <!-- TOGGLE (top right) -->
+    <div class="toggle"></div>
+
+    <!-- CENTER TEXT -->
+    <div class="main-content">
+      <p>Your Dashboard / Reports will appear here</p>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- FILE INPUT -->
+<input type="file" id="fileInput" hidden>
+
+</body>
+</html>

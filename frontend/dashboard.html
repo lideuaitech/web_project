@@ -1,0 +1,147 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lideu AI</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- ICONS -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="dashboard-page">
+  <div class="bg-glow glow1"></div>
+  <div class="bg-glow glow2"></div>
+  <div class="bg-glow glow3"></div>
+    <div class="app">
+      
+    <!-- DAR/LIGHT MODE -->
+    <button class="theme-floating-btn" onclick="toggleTheme()">
+    <i data-lucide="moon"></i>
+    </button>
+
+      <!-- ===== SIDEBAR ===== -->
+      <div class="sidebar">
+        <div class="top">
+          <!-- LOGO ROW -->
+          <div class="logo-row">
+            <div class="logo-pill">
+            <div class="logo">
+              <img id="logoImage" src="images/logo.png" alt="Lideu AI Logo"/>            
+            </div></div>
+            
+            <!-- LOGOUT -->
+            <button class="logout-btn" onclick="logout()">
+              <i data-lucide="log-out" style="stroke: white"></i>
+            </button>
+          </div>
+
+          <!-- NEW CHAT -->
+          <button class="new-chat" id="newChatBtn">New Chat</button>
+          <!-- CLEAR HISTORY -->
+          <button class="clear-history" id="clearHistoryBtn">Clear History</button>
+
+          <!-- HISTORY -->
+          <div class="history">
+            <p>Your chat history <i data-lucide="chevron-down"></i></p>
+            <div class="chat-list"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== MAIN CONTENT ===== -->
+      <div class="center-box">
+        <h2>Ready when you are, what are we doing today?</h2>
+        
+        <!-- CHAT -->
+        <div id="chatBox" class="chat-box">
+        <div id="dashboardContainer" class="dashboard-container"></div>
+          <div class="empty-state" id="emptyState">
+
+  <h3>
+    Upload a dataset and start asking questions
+  </h3>
+
+  <p>
+    Try asking:
+  </p>
+
+  <div class="suggestions">
+
+        <button onclick="useSuggestion(this)">
+          Top 5 sales by region
+        </button>
+
+        <button onclick="useSuggestion(this)">
+          Average revenue by month
+        </button>
+
+        <button onclick="useSuggestion(this)">
+          Show revenue chart
+        </button>
+
+      </div>
+
+    </div>
+        </div>
+
+        <!-- INPUT -->
+        <div class="input-box">
+          <!-- FILE INPUT -->
+          <input type="file" id="fileInput" hidden />
+          <!-- QUESTION INPUT -->
+          <input
+            id="questionInput"
+            type="text"
+            placeholder="Ask anything"
+            onkeydown="if (event.key === 'Enter') askQuestion();"/>
+
+          <!-- UPLOAD -->
+          <button type="button" id="uploadBtn" class="icon-btn">
+            <i data-lucide="paperclip" style="stroke: white"></i>
+          </button>
+
+          <!-- SEND -->
+          <button type="button" onclick="askQuestion()" class="icon-btn" id="sendBtn">
+            <i data-lucide="send" style="stroke: white"></i>
+          </button>
+          <button type="button" onclick="generateDashboard()" class="icon-btn">
+            <i data-lucide="layout-dashboard" style="stroke: white"></i>
+          </button>
+          <!-- DOWNLOAD DROPDOWN -->
+          <div class="download-wrapper">
+            <!-- MAIN BUTTON -->
+            <button type="button" id="downloadBtn" class="icon-btn">
+              <i data-lucide="download" style="stroke: white"></i>
+            </button>
+
+            <!-- DROPDOWN -->
+            <div id="downloadMenu" class="download-menu">
+              <button id="exportExcelBtn">Export Excel</button>
+              <button id="exportPdfBtn">Export PDF</button>
+              <button id="exportPptBtn">Export PPT</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- FILE NAME -->
+        <div class="dataset-info">
+
+          <p id="fileName" class="file-name"></p>
+          <div id="datasetStats" class="dataset-stats"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCRIPT -->
+    <script src="script.js"></script>
+
+    <!-- CHART JS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- INIT ICONS -->
+    <script>lucide.createIcons();</script>
+    <div id="toast" class="toast"></div>
+  </body>
+</html>
