@@ -16,4 +16,4 @@ class SchemaExtractor:
                 "sample_values": column_data.dropna().unique().tolist()[:3]
             })
 
-        return schema
+        return schema         
